@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 		myAdapter = new MyAdapter(getApplicationContext(), products);
 
 		fillProducts();
-
+		
 		recyclerView.setLayoutManager(sglm);
 		recyclerView.setAdapter(myAdapter);
 		// recyclerView.addOnScrollListener(new EndlessOnScrollListener(sglm) {
@@ -79,7 +79,7 @@ public class MainActivity extends Activity {
 		}
 
 		from += 20;
-		count += 20;
+		
 		myAdapter.notifyDataSetChanged();
 		progressBar.setVisibility(View.GONE);
 	}
