@@ -164,7 +164,8 @@ containing a value of this type.
         public static final int cardview_default_radius=0x7f050002;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int background=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
         public static final int CardView1=0x7f090005;
