@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 public class MainActivity extends Activity {
@@ -33,6 +35,7 @@ public class MainActivity extends Activity {
 
 		recyclerView = (RecyclerView) findViewById(R.id.recyclerGridView);
 		progressBar = (ProgressBar) findViewById(R.id.progressBar);
+		
 		sglm = new StaggeredGridLayoutManager(2,
 				StaggeredGridLayoutManager.VERTICAL);
 
