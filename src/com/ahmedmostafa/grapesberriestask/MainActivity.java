@@ -44,26 +44,30 @@ public class MainActivity extends Activity {
 		
 		recyclerView.setLayoutManager(sglm);
 		recyclerView.setAdapter(myAdapter);
-		// recyclerView.addOnScrollListener(new EndlessOnScrollListener(sglm) {
-		//
-		// @Override
-		// public void onLoadMore() {
-		//
-		// fillProducts();
-		// }
-		// });
+		
+		// used for second solution
+		 recyclerView.addOnScrollListener(new EndlessOnScrollListener(sglm) {
+		
+		 @Override
+		 public void onLoadMore() {
+		
+		 fillProducts();
+		 }
+		 });
 
-		recyclerView.addOnScrollListener(new EndlessOnScrollListener() {
-
-			@Override
-			public void onScrolledToEnd() {
-				if (!loading) {
-					loading = true;
-					fillProducts();
-				}
-				loading = false;
-			}
-		});
+		
+		// used for first solution
+//		recyclerView.addOnScrollListener(new EndlessOnScrollListener() {
+//
+//			@Override
+//			public void onScrolledToEnd() {
+//				if (!loading) {
+//					loading = true;
+//					fillProducts();
+//				}
+//				loading = false;
+//			}
+//		});
 	}
 
 	private void fillProducts() {

@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/LinearLayout1"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/CardView1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="15sp" >
+    android:padding="15sp"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="6dp" >
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
         <ImageView
             android:id="@+id/img_view_product"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
+            android:layout_margin="10dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_launcher" />
 
         <TextView
-            android:id="@+id/tv_price_value"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_description_value"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_margin="10dp"
             android:background="#55000000"
-            android:text="PRICE"
+            android:ellipsize="marquee"
+            android:text="DESCRIPTION"
             android:textColor="@android:color/white"
             android:textSize="15sp" />
 
-    </FrameLayout>
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_description_value"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_price_value"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10sp"
+        android:layout_gravity="end"
+        android:layout_margin="10dp"
         android:background="#55000000"
-        android:ellipsize="marquee"
-        android:text="DESCRIPTION"
+        android:text="PRICE"
         android:textColor="@android:color/white"
         android:textSize="15sp" />
 
-</LinearLayout>
+</android.support.v7.widget.CardView>

@@ -5,49 +5,41 @@
     android:layout_height="match_parent"
     tools:context="com.ahmedmostafa.grapesberriestask.MainActivity" >
 
-    <!-- <GridView -->
-    <!-- android:id="@+id/grdview_products" -->
-    <!-- android:layout_width="fill_parent" -->
-    <!-- android:layout_height="wrap_content" -->
-    <!-- android:layout_below="@+id/textView1" -->
-    <!-- android:layout_marginTop="20sp" -->
-    <!-- android:focusable="true" -->
-    <!-- android:gravity="center" -->
-    <!-- android:horizontalSpacing="30sp" -->
-    <!-- android:numColumns="auto_fit" -->
-    <!-- android:stretchMode="columnWidth" -->
-    <!-- android:verticalSpacing="30sp" > -->
-    <!-- </GridView> -->
-    
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
         android:background="#55000000"
-        android:text="Products List"
-        android:textColor="@android:color/black"
-        android:textSize="25sp" />
-    
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
-        android:layout_centerInParent="true"
-        android:visibility="gone"/>
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Products List"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerGridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/progressBar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="50sp"
+        android:layout_below="@+id/linear_layout"
         android:scrollbars="vertical"
         android:verticalSpacing="8dp" >
     </android.support.v7.widget.RecyclerView>
 
-    
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone" />
 
 </RelativeLayout>
