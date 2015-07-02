@@ -8,6 +8,20 @@
 package com.ahmedmostafa.grapesberriestask;
 
 public final class R {
+    public static final class anim {
+        public static final int blink=0x7f040000;
+        public static final int bounce=0x7f040001;
+        public static final int fade_in=0x7f040002;
+        public static final int fade_out=0x7f040003;
+        public static final int move=0x7f040004;
+        public static final int move_word=0x7f040005;
+        public static final int rotate=0x7f040006;
+        public static final int sequential=0x7f040007;
+        public static final int slide_down=0x7f040008;
+        public static final int slide_up=0x7f040009;
+        public static final int zoom_in=0x7f04000a;
+        public static final int zoom_out=0x7f04000b;
+    }
     public static final class attr {
         /**  Background color for CardView. 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -129,16 +143,16 @@ containing a value of this type.
     public static final class color {
         /**  Background color for dark CardView. 
          */
-        public static final int cardview_dark_background=0x7f040001;
+        public static final int cardview_dark_background=0x7f050001;
         /**  Background color for light CardView. 
          */
-        public static final int cardview_light_background=0x7f040000;
+        public static final int cardview_light_background=0x7f050000;
         /**  Shadow color for the furthest pixels around CardView. 
          */
-        public static final int cardview_shadow_end_color=0x7f040003;
+        public static final int cardview_shadow_end_color=0x7f050003;
         /**  Shadow color for the first pixels around CardView. 
          */
-        public static final int cardview_shadow_start_color=0x7f040002;
+        public static final int cardview_shadow_start_color=0x7f050002;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -148,20 +162,20 @@ containing a value of this type.
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
         /** 
  Inset shadow for RoundRectDrawableWithShadow. It is used to avoid gaps between the card
      and the shadow. 
     
          */
-        public static final int cardview_compat_inset_shadow=0x7f050004;
+        public static final int cardview_compat_inset_shadow=0x7f060004;
         /**   Elevation value to use for CardViews. Pre-L, it is equal to shadow size.  
          */
-        public static final int cardview_default_elevation=0x7f050003;
+        public static final int cardview_default_elevation=0x7f060003;
         /**  Default radius for CardView corners. 
          */
-        public static final int cardview_default_radius=0x7f050002;
+        public static final int cardview_default_radius=0x7f060002;
     }
     public static final class drawable {
         public static final int description_background=0x7f020000;
@@ -169,44 +183,50 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020002;
         public static final int no_connection=0x7f020003;
         public static final int product_details_background=0x7f020004;
-        public static final int reload=0x7f020005;
-        public static final int reverse_shadow=0x7f020006;
-        public static final int shadow=0x7f020007;
+        public static final int products1=0x7f020005;
+        public static final int reload=0x7f020006;
+        public static final int reverse_shadow=0x7f020007;
+        public static final int shadow=0x7f020008;
     }
     public static final class id {
-        public static final int CardView=0x7f09000e;
-        public static final int LinearLayout1=0x7f09000b;
-        public static final int action_settings=0x7f090011;
-        public static final int footer_linear_layout=0x7f090005;
-        public static final int img_view_product=0x7f09000c;
-        public static final int main_linear_layout=0x7f090000;
-        public static final int no_connection_linear_layout=0x7f090007;
-        public static final int progress_bar=0x7f09000a;
-        public static final int recycler_grid_view=0x7f090004;
-        public static final int toolbar_linear_layout=0x7f090001;
-        public static final int tv_description_value=0x7f09000f;
-        public static final int tv_item_description=0x7f09000d;
-        public static final int tv_no_connection=0x7f090008;
-        public static final int tv_press_reload=0x7f090009;
-        public static final int tv_price_value=0x7f090010;
-        public static final int tv_title=0x7f090002;
-        public static final int view_shadow=0x7f090003;
-        public static final int view_shadow_1=0x7f090006;
+        public static final int CardView=0x7f0a0010;
+        public static final int LinearLayout1=0x7f0a000d;
+        public static final int action_settings=0x7f0a0013;
+        public static final int footer_linear_layout=0x7f0a0005;
+        public static final int img_view_brand=0x7f0a000c;
+        public static final int img_view_product=0x7f0a000e;
+        public static final int img_view_products=0x7f0a000b;
+        public static final int main_linear_layout=0x7f0a0000;
+        public static final int no_connection_linear_layout=0x7f0a0007;
+        public static final int progress_bar=0x7f0a000a;
+        public static final int recycler_grid_view=0x7f0a0004;
+        public static final int toolbar_linear_layout=0x7f0a0001;
+        public static final int tv_description_value=0x7f0a0011;
+        public static final int tv_item_description=0x7f0a000f;
+        public static final int tv_no_connection=0x7f0a0008;
+        public static final int tv_press_reload=0x7f0a0009;
+        public static final int tv_price_value=0x7f0a0012;
+        public static final int tv_title=0x7f0a0002;
+        public static final int view_shadow=0x7f0a0003;
+        public static final int view_shadow_1=0x7f0a0006;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int product_item_details=0x7f030001;
-        public static final int single_product=0x7f030002;
+        public static final int activity_splash=0x7f030001;
+        public static final int product_item_details=0x7f030002;
+        public static final int single_product=0x7f030003;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
-        public static final int product_item_details=0x7f080001;
+        public static final int main=0x7f090000;
+        public static final int product_item_details=0x7f090001;
+        public static final int splash=0x7f090002;
     }
     public static final class string {
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
-        public static final int hello_world=0x7f060003;
-        public static final int title_activity_product_item_details=0x7f060002;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
+        public static final int hello_world=0x7f070003;
+        public static final int title_activity_product_item_details=0x7f070002;
+        public static final int title_activity_splash=0x7f070004;
     }
     public static final class style {
         /** 
@@ -230,14 +250,14 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
-        public static final int CardView=0x7f070002;
-        public static final int CardView_Dark=0x7f070004;
-        public static final int CardView_Light=0x7f070003;
+        public static final int AppTheme=0x7f080001;
+        public static final int CardView=0x7f080002;
+        public static final int CardView_Dark=0x7f080004;
+        public static final int CardView_Light=0x7f080003;
     }
     public static final class styleable {
         /** Attributes that can be used with a CardView.

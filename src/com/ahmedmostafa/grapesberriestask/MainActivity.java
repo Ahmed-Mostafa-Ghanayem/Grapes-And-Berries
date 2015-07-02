@@ -52,17 +52,17 @@ public class MainActivity extends Activity {
 		progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 		footerLinearLayout = (LinearLayout) findViewById(R.id.footer_linear_layout);
 		noConnectionLinearLayout = (LinearLayout) findViewById(R.id.no_connection_linear_layout);
-		
+
 		noConnectionLinearLayout.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				
+
 				fillProducts();
-				
+
 			}
 		});
-		
+
 		recyclerView = (RecyclerView) findViewById(R.id.recycler_grid_view);
 		sglm = new StaggeredGridLayoutManager(2,
 				StaggeredGridLayoutManager.VERTICAL);
@@ -134,42 +134,52 @@ public class MainActivity extends Activity {
 	private boolean isNetworkConnected() {
 		cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		ni = cm.getActiveNetworkInfo();
-		
+
 		if (ni != null && ni.isConnectedOrConnecting()) {
 			return true;
 		}
-		
+
 		showNoConnection();
 		return false;
 	}
 
 	private boolean isInternetAvailable() {
 
-		
 		try {
-	        Process p1 = Runtime.getRuntime().exec("ping -c 1 www.google.com");
-	        int returnVal = p1.waitFor();
-	        boolean reachable = (returnVal==0);
-	        return reachable;
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-		
+			Process p1 = Runtime.getRuntime().exec("ping -c 1 www.google.com");
+			int returnVal = p1.waitFor();
+			boolean reachable = (returnVal == 0);
+			return reachable;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		showNoConnection();
 		return false;
 
 	}
 
 	private void showNoConnection() {
-		footerLinearLayout.setVisibility(View.VISIBLE);
-		progressBar.setVisibility(View.GONE);
-		noConnectionLinearLayout.setVisibility(View.VISIBLE);
+		if (footerLinearLayout.getVisibility() == View.GONE) {
+			footerLinearLayout.setVisibility(View.VISIBLE);
+			progressBar.setVisibility(View.GONE);
+			noConnectionLinearLayout.setVisibility(View.VISIBLE);
+		} else {
+			noConnectionLinearLayout.setVisibility(View.VISIBLE);
+			progressBar.setVisibility(View.GONE);
+		}
 	}
 
 	private void showProgress() {
-		footerLinearLayout.setVisibility(View.VISIBLE);
-		progressBar.setVisibility(View.VISIBLE);
-		noConnectionLinearLayout.setVisibility(View.GONE);
+
+		if (footerLinearLayout.getVisibility() == View.GONE) {
+			footerLinearLayout.setVisibility(View.VISIBLE);
+			progressBar.setVisibility(View.VISIBLE);
+			noConnectionLinearLayout.setVisibility(View.GONE);
+		} else {
+			progressBar.setVisibility(View.VISIBLE);
+			noConnectionLinearLayout.setVisibility(View.GONE);
+		}
 
 	}
 
