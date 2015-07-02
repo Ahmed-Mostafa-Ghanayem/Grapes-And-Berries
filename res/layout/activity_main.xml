@@ -1,20 +1,20 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/RelativeLayout1"
+    android:id="@+id/main_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
+    android:orientation="vertical"
     tools:context="com.ahmedmostafa.grapesberriestask.MainActivity" >
 
     <LinearLayout
-        android:id="@+id/linear_layout"
+        android:id="@+id/toolbar_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="40sp"
         android:background="#9900BFFF"
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -24,33 +24,75 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <View
+        android:id="@+id/view_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="5sp"
+        android:background="@drawable/shadow" />
+
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerGridView"
+        android:id="@+id/recycler_grid_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/progressBar"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linear_layout"
+        android:layout_weight="0.88"
         android:background="#F0F8FF"
         android:scrollbars="vertical"
         android:verticalSpacing="8dp" >
-
     </android.support.v7.widget.RecyclerView>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
+    <LinearLayout
+        android:id="@+id/footer_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:visibility="gone" />
+        android:gravity="center|bottom"
+        android:orientation="vertical"
+        android:visibility="gone" >
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="5sp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/recyclerGridView"
-        android:background="@drawable/shadow" />
+        <View
+            android:id="@+id/view_shadow_1"
+            android:layout_width="match_parent"
+            android:layout_height="5sp"
+            android:background="@drawable/reverse_shadow" />
 
-</RelativeLayout>
+        <LinearLayout
+            android:id="@+id/no_connection_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9900BFFF"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/tv_no_connection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/no_connection"
+                android:text=" No Connection"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_press_reload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/reload"
+                android:paddingBottom="5dp"
+                android:text=" Press To Reload"
+                android:textColor="#333"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="#9900BFFF" />
+
+    </LinearLayout>
+
+</LinearLayout>

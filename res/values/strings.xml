@@ -3,5 +3,7 @@
 
     <string name="app_name">Grapes Berries Task</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_product_item_details">ProductItemDetails</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
