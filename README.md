@@ -11,8 +11,8 @@ Use android.support.v7.widget.CardView as single item view, due to some compleca
 
 ToDo:
 
-1 handle no connection and timeout exceptions
+1 handle no connection and timeout exceptions (done)
 
-2 on single item clicked action on RecyclerView
+2 on single item clicked action on RecyclerView (done)
 
-3 splash screen
+3 splash screen (next)
