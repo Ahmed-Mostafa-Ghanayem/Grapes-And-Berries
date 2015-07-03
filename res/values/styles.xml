@@ -34,4 +34,9 @@
         <item name="cardBackgroundColor">@color/cardview_dark_background</item>
     </style>
 
+    <style name="NoFrame" parent="@android:style/Theme.Holo.Dialog.NoActionBar" >
+        <item name="android:windowBackground"> @android:color/transparent</item>
+        
+    </style>
+    
 </resources>

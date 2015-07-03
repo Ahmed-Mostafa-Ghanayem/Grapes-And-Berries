@@ -15,4 +15,4 @@ ToDo:
 
 2 on single item clicked action on RecyclerView (done)
 
-3 splash screen (next)
+3 splash screen (done)

@@ -258,6 +258,7 @@ containing a value of this type.
         public static final int CardView=0x7f080002;
         public static final int CardView_Dark=0x7f080004;
         public static final int CardView_Light=0x7f080003;
+        public static final int NoFrame=0x7f080005;
     }
     public static final class styleable {
         /** Attributes that can be used with a CardView.
