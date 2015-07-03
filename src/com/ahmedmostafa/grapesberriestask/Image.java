@@ -1,5 +1,9 @@
 package com.ahmedmostafa.grapesberriestask;
 
+/*
+ * Class to save data of image objects parsed from json file 
+ */
+
 public class Image {
 
 	String url;

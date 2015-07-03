@@ -4,10 +4,19 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.OnScrollListener;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
+/*
+ * Abstract class extends OnScrollListener of RecyclerView. It checks the
+ * scroll state and position of the RecyclerView elements. it provides
+ * abstract method onLoadMore to override when a new object is created.
+ * onLoadMore method implementation specifies the action to be done when the
+ * scroll state is close to the end position.
+ */
+
 public abstract class EndlessOnScrollListener extends OnScrollListener {
 
 	public static String TAG = EndlessOnScrollListener.class.getSimpleName();
 
+	// int variables to calculate the position of last item
 	private int previousTotal = 0;
 
 	private int visibleThreshold = 2;
@@ -25,7 +34,7 @@ public abstract class EndlessOnScrollListener extends OnScrollListener {
 	}
 
 	public EndlessOnScrollListener() {
-		
+
 	}
 
 	@Override
@@ -34,12 +43,11 @@ public abstract class EndlessOnScrollListener extends OnScrollListener {
 
 		// first solution (simple)
 
-//		 if (!recyclerView.canScrollVertically(1)) {
-//		 onScrolledToEnd();
-//		 }
-		 //		 end of first solution
-		
-		
+		// if (!recyclerView.canScrollVertically(1)) {
+		// onScrolledToEnd();
+		// }
+		// end of first solution
+
 		// second solution
 		visibleItemCount = recyclerView.getChildCount();
 		totalItemCount = sglm.getItemCount();
@@ -60,11 +68,10 @@ public abstract class EndlessOnScrollListener extends OnScrollListener {
 		}
 		// End second solution
 	}
-	
+
 	// used by first solution
-//	public abstract void onScrolledToEnd();
-	
-	
+	// public abstract void onScrolledToEnd();
+
 	// used by second solution
 	public abstract void onLoadMore();
 

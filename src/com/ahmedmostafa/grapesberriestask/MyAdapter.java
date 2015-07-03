@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
-import android.sax.StartElementListener;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 			String url = products.get(getAdapterPosition()).getImage().getUrl();
 			String description = products.get(getAdapterPosition())
 					.getProductDescription();
-			
+
 			Intent intent = new Intent(context, ProductItemDetails.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent.putExtra("url", url);

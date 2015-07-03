@@ -23,12 +23,25 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+/*
+ * An Application that download json from web service.
+ * Then use JSONParser class that extends AsyncTask to parse it.
+ * Then show it's contents on a RecyclerView using MyAdapter
+ * that extends RecyclerView.Adapter and StaggeredGridLayoutManager.
+ * I load 20 results at a time, when scroll is before end by 5
+ * the application will load another 20 results automatically.
+ * If there is no network connection a footer bar will show up.
+ * If you click this bar, the application will try to reload again.
+ * 
+ */
 public class MainActivity extends Activity {
 
+	// views used to show parsed data
 	RecyclerView recyclerView;
 	ProgressBar progressBar;
 	LinearLayout footerLinearLayout, noConnectionLinearLayout;
 
+	// fill RecyclerView
 	MyAdapter myAdapter;
 	StaggeredGridLayoutManager sglm;
 	ArrayList<Product> products;
@@ -36,6 +49,7 @@ public class MainActivity extends Activity {
 	// JSONHandler handler;
 	JSONParser parser;
 
+	// to check network and internet connection.
 	ConnectivityManager cm;
 	NetworkInfo ni;
 
@@ -48,11 +62,17 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		// handler = new JSONHandler();
-
+		
+		// progressBar to show json download progress
 		progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+		
+		// footerLinearLayout holds the progressBar and noConnectionLayout
 		footerLinearLayout = (LinearLayout) findViewById(R.id.footer_linear_layout);
+		
+		// noConnectionLinearLayout shows up when there is a problem in the connection
 		noConnectionLinearLayout = (LinearLayout) findViewById(R.id.no_connection_linear_layout);
-
+		
+		// The action when noConnectionLinearLayout pressed
 		noConnectionLinearLayout.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -62,13 +82,18 @@ public class MainActivity extends Activity {
 
 			}
 		});
-
+		
+		//recyclerView used to show data in downloaded json
 		recyclerView = (RecyclerView) findViewById(R.id.recycler_grid_view);
+		
+		// StaggeredLayoutManager to manage showing items in recyclerView
 		sglm = new StaggeredGridLayoutManager(2,
 				StaggeredGridLayoutManager.VERTICAL);
-
+		
+		// ArrayList to hold data in downloaded json
 		products = new ArrayList<Product>();
-
+		
+		
 		myAdapter = new MyAdapter(getApplicationContext(), products);
 
 		fillProducts();
@@ -269,11 +294,11 @@ public class MainActivity extends Activity {
 					JSONObject product = result.getJSONObject(i);
 					id = product.getInt(ID);
 					productDescription = product.getString(PRODUCT_DESCRIPTION);
+					price = product.getDouble(PRICE);
 					JSONObject image = product.getJSONObject(IMAGE);
 					url = image.getString(URL);
 					width = image.getDouble(WIDTH);
 					height = image.getDouble(HEIGHT);
-					price = product.getDouble(PRICE);
 
 					productsArrayList.add(new Product(id, productDescription,
 							new Image(width, height, url), price));

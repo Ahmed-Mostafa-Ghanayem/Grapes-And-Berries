@@ -9,12 +9,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/*
+ * Class to handle json file downloaded from the web service.
+ * It is an option.
+ * I actually used MainActivity.JSONParser class which extends AsyncTask to do this Job.
+ */
+
 public class JSONHandler {
-
+	
+	// to check if parsing is done
 	public volatile boolean parsingComplete = false;
-
+	
+	// to save data from json
 	public ArrayList<Product> productsArrayList;
-
+	
+	// save key names used in json
 	final String ID = "id";
 	final String PRODUCT_DESCRIPTION = "productDescription";
 	final String IMAGE = "image";
@@ -22,7 +31,10 @@ public class JSONHandler {
 	final String HEIGHT = "height";
 	final String URL = "url";
 	final String PRICE = "price";
-
+	
+	/*
+	 * to download json
+	 */
 	public void fetchJSON(int count, int from) {
 
 		parsingComplete = false;
@@ -33,25 +45,22 @@ public class JSONHandler {
 			@Override
 			public void run() {
 				try {
-					// Log.w("FIRST", "a");
 					URL url = new URL(urlString);
 					HttpURLConnection conn = (HttpURLConnection) url
 							.openConnection();
-					// Log.w("SECOND", "b");
 					conn.setReadTimeout(10000);
 					conn.setConnectTimeout(15000);
-					// Log.w("THIRD", "c");
 					conn.setRequestMethod("GET");
 					conn.setDoInput(true);
 					// Starts the query
 					conn.connect();
 					InputStream stream = conn.getInputStream();
-					// Log.w("FOURTH", "d");
+					// convert json to String
 					String data = convertStreamToString(stream);
-					// Log.w("DATA", data);
+					
+					// read String json and save it in ArrayList
 					readAndParseJSON(data);
 					stream.close();
-					// Log.w("FIFTH", "e");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -61,7 +70,9 @@ public class JSONHandler {
 
 		thread.start();
 	}
-
+	/*
+	 * read json String and save it's content in ArrayList
+	 */
 	private void readAndParseJSON(String data) {
 
 		try {
@@ -92,7 +103,10 @@ public class JSONHandler {
 		}
 
 	}
-
+	
+	/*
+	 * Convert json to String
+	 */
 	private static String convertStreamToString(InputStream stream) {
 
 		java.util.Scanner s = new java.util.Scanner(stream).useDelimiter("\\A");
