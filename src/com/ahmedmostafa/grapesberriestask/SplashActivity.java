@@ -8,6 +8,9 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 
+/*
+ * splash activity to show up in the start of apllication
+ */
 public class SplashActivity extends Activity implements AnimationListener {
 
 	Animation animFadein, animblink, animbounce, animmove;

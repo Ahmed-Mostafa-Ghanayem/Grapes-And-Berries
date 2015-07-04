@@ -1,5 +1,6 @@
 package com.ahmedmostafa.grapesberriestask;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -62,16 +63,17 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		// handler = new JSONHandler();
-		
+
 		// progressBar to show json download progress
 		progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-		
+
 		// footerLinearLayout holds the progressBar and noConnectionLayout
 		footerLinearLayout = (LinearLayout) findViewById(R.id.footer_linear_layout);
-		
-		// noConnectionLinearLayout shows up when there is a problem in the connection
+
+		// noConnectionLinearLayout shows up when there is a problem in the
+		// connection
 		noConnectionLinearLayout = (LinearLayout) findViewById(R.id.no_connection_linear_layout);
-		
+
 		// The action when noConnectionLinearLayout pressed
 		noConnectionLinearLayout.setOnClickListener(new OnClickListener() {
 
@@ -82,20 +84,21 @@ public class MainActivity extends Activity {
 
 			}
 		});
-		
-		//recyclerView used to show data in downloaded json
+
+		// recyclerView used to show data in downloaded json
 		recyclerView = (RecyclerView) findViewById(R.id.recycler_grid_view);
-		
+
 		// StaggeredLayoutManager to manage showing items in recyclerView
 		sglm = new StaggeredGridLayoutManager(2,
 				StaggeredGridLayoutManager.VERTICAL);
-		
+
 		// ArrayList to hold data in downloaded json
 		products = new ArrayList<Product>();
-		
-		
+
+		// connect Views in RecyclerView to data in products ArrayList
 		myAdapter = new MyAdapter(getApplicationContext(), products);
 
+		// parse json and fill products ArrayList with parsed data
 		fillProducts();
 
 		recyclerView.setLayoutManager(sglm);
@@ -126,6 +129,11 @@ public class MainActivity extends Activity {
 
 	}
 
+	/*
+	 * Firstly, check the availability of network connection. Secondly, call
+	 * JSONParser execute method to download and parse json. Finally, Then it
+	 * add parsed data to products ArrayList and notify adapter about changes
+	 */
 	private void fillProducts() {
 
 		if (isNetworkConnected() && isInternetAvailable()) {
@@ -156,6 +164,9 @@ public class MainActivity extends Activity {
 
 	}
 
+	/*
+	 * check network availability
+	 */
 	private boolean isNetworkConnected() {
 		cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		ni = cm.getActiveNetworkInfo();
@@ -168,22 +179,29 @@ public class MainActivity extends Activity {
 		return false;
 	}
 
+	/*
+	 * check internet availability
+	 */
 	private boolean isInternetAvailable() {
 
 		try {
 			Process p1 = Runtime.getRuntime().exec("ping -c 1 www.google.com");
 			int returnVal = p1.waitFor();
 			boolean reachable = (returnVal == 0);
-			return reachable;
+			if (reachable) {
+				return reachable;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		showNoConnection();
 		return false;
 
 	}
 
+	/*
+	 * show noConnectionLinearLayout
+	 */
 	private void showNoConnection() {
 		if (footerLinearLayout.getVisibility() == View.GONE) {
 			footerLinearLayout.setVisibility(View.VISIBLE);
@@ -195,6 +213,9 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	/*
+	 * show progressBar
+	 */
 	private void showProgress() {
 
 		if (footerLinearLayout.getVisibility() == View.GONE) {
@@ -208,11 +229,17 @@ public class MainActivity extends Activity {
 
 	}
 
+	/*
+	 * hide footerLinearLayout
+	 */
 	private void hideFooter() {
 		footerLinearLayout.setVisibility(View.GONE);
-
 	}
 
+	/*
+	 * JSONPareser class extends AsyncTask class used to download ,parse and
+	 * save json data to ArrayList.
+	 */
 	private class JSONParser extends AsyncTask<Integer, Void, Void> {
 
 		public volatile boolean parsingComplete = false;
@@ -274,14 +301,20 @@ public class MainActivity extends Activity {
 			hideFooter();
 			super.onPostExecute(result);
 		}
-
+		
+		/*
+		 * convert json into string
+		 */
 		private String convertStreamToString(InputStream stream) {
 
 			java.util.Scanner s = new java.util.Scanner(stream)
 					.useDelimiter("\\A");
 			return s.hasNext() ? s.next() : "";
 		}
-
+		
+		/*
+		 * read json string, parse it and save parsed data in productsArrayList
+		 */
 		private void readAndParseJSON(String data) {
 
 			try {

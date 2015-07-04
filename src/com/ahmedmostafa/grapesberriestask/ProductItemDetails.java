@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+/*
+ * show details of a clicked view in RecyclerView
+ */
 public class ProductItemDetails extends Activity {
 	
 	TextView tvDescription;

@@ -13,7 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-
+/*
+ * connect RecyclerView with products ArrayList
+ */
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
 	ArrayList<Product> products;
@@ -22,12 +24,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 	String url, description;
 	double price;
 
-	// constructor
+	// constructor takes context and ArrayList
 	public MyAdapter(Context context, ArrayList<Product> products) {
 		this.products = products;
 		this.context = context;
 	}
 
+	/*
+	 * ViewHolder class extends RecyclerView.Adapter and implements
+	 * OnClickListener interface.
+	 * Used to hold views on the custom view shown on RecyclerView 
+	 */
 	public class ViewHolder extends RecyclerView.ViewHolder implements
 			OnClickListener {
 
@@ -47,7 +54,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 			view.setOnClickListener(this);
 
 		}
-
+		
+		/*
+		 * to show another activity with details of the clicked view
+		 */
 		@Override
 		public void onClick(View v) {
 

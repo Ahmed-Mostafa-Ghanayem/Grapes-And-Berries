@@ -1,5 +1,7 @@
 package com.ahmedmostafa.grapesberriestask;
-
+/*
+ * Class to save data about product parsed from json
+ */
 public class Product {
 	
 	String productDescription;
