@@ -143,16 +143,16 @@ containing a value of this type.
     public static final class color {
         /**  Background color for dark CardView. 
          */
-        public static final int cardview_dark_background=0x7f050001;
+        public static final int cardview_dark_background=0x7f070001;
         /**  Background color for light CardView. 
          */
-        public static final int cardview_light_background=0x7f050000;
+        public static final int cardview_light_background=0x7f070000;
         /**  Shadow color for the furthest pixels around CardView. 
          */
-        public static final int cardview_shadow_end_color=0x7f050003;
+        public static final int cardview_shadow_end_color=0x7f070003;
         /**  Shadow color for the first pixels around CardView. 
          */
-        public static final int cardview_shadow_start_color=0x7f050002;
+        public static final int cardview_shadow_start_color=0x7f070002;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -162,20 +162,20 @@ containing a value of this type.
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f060000;
-        public static final int activity_vertical_margin=0x7f060001;
+        public static final int activity_horizontal_margin=0x7f080000;
+        public static final int activity_vertical_margin=0x7f080001;
         /** 
  Inset shadow for RoundRectDrawableWithShadow. It is used to avoid gaps between the card
      and the shadow. 
     
          */
-        public static final int cardview_compat_inset_shadow=0x7f060004;
+        public static final int cardview_compat_inset_shadow=0x7f080004;
         /**   Elevation value to use for CardViews. Pre-L, it is equal to shadow size.  
          */
-        public static final int cardview_default_elevation=0x7f060003;
+        public static final int cardview_default_elevation=0x7f080003;
         /**  Default radius for CardView corners. 
          */
-        public static final int cardview_default_radius=0x7f060002;
+        public static final int cardview_default_radius=0x7f080002;
     }
     public static final class drawable {
         public static final int description_background=0x7f020000;
@@ -222,11 +222,11 @@ containing a value of this type.
         public static final int splash=0x7f090002;
     }
     public static final class string {
-        public static final int action_settings=0x7f070001;
-        public static final int app_name=0x7f070000;
-        public static final int hello_world=0x7f070003;
-        public static final int title_activity_product_item_details=0x7f070002;
-        public static final int title_activity_splash=0x7f070004;
+        public static final int action_settings=0x7f050001;
+        public static final int app_name=0x7f050000;
+        public static final int hello_world=0x7f050003;
+        public static final int title_activity_product_item_details=0x7f050002;
+        public static final int title_activity_splash=0x7f050004;
     }
     public static final class style {
         /** 
@@ -249,16 +249,38 @@ containing a value of this type.
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+ API 11 theme customizations can go here. 
+
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    
+ API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f060000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
-        public static final int CardView=0x7f080002;
-        public static final int CardView_Dark=0x7f080004;
-        public static final int CardView_Light=0x7f080003;
-        public static final int NoFrame=0x7f080005;
+        public static final int AppTheme=0x7f060001;
+        public static final int CardView=0x7f060002;
+        public static final int CardView_Dark=0x7f060004;
+        public static final int CardView_Light=0x7f060003;
+        public static final int NoFrame=0x7f060005;
     }
     public static final class styleable {
         /** Attributes that can be used with a CardView.

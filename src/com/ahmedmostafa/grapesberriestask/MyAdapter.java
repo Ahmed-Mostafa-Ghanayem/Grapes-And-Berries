@@ -20,7 +20,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
 	ArrayList<Product> products;
 	Context context;
-
+	
+	
 	String url, description;
 	double price;
 
@@ -89,13 +90,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 	}
 
 	@Override
-	public void onBindViewHolder(ViewHolder holder, int position) {
+	public void onBindViewHolder(final ViewHolder holder, int position) {
 
 		url = products.get(position).getImage().getUrl();
 		price = products.get(position).getPrice();
 		description = products.get(position).getProductDescription();
 
 		Picasso.with(context).load(url).into(holder.imgViewProduct);
+		
 		holder.tvPrice.setText(price + " $");
 		holder.tvDescription.setText(description);
 
